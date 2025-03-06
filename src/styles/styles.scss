@@ -1,0 +1,24 @@
+// Global SCSS variables
+$primary-color: #00854B;
+$secondary-color: #B85450;
+
+// Global mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Global styles that don't conflict with Tailwind
+.g-text-box {
+  border-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+} 
+
+:root {
+    --bg-blue: #d3e6ea;
+}
+
+main {
+    background-color: var(--bg-blue)
+}

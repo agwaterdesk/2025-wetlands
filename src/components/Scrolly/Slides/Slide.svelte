@@ -1,8 +1,8 @@
 <script>
-  import InlineImage from "./InlineImage.svelte";
+  import InlineMedia from "./InlineMedia.svelte";
   import { marked } from "marked";
 
-  let { slide } = $props();
+  let { slide, hydrateInlineLegends } = $props();
 
   // Split text into paragraphs
   let paragraphs = $derived(slide?.text?.split("\n") || []);
@@ -11,22 +11,38 @@
 </script>
 
 <section>
-  <div class="g-text-box">
+  <div
+    class="slide-content {slide.layout || 'default'}"
+    use:hydrateInlineLegends
+  >
     {#each paragraphs as p}
       {@html marked(p)}
     {/each}
 
-    {#if slide.controller.component}
+    {#if slide.component}
       <div class="component-wrapper">
-        {#if slide.controller.component.type === "image"}
-          {@const component = slide.controller.component}
+        {#if slide.component.type === "image" || slide.component.type === "video"}
+          {@const component = slide.component}
 
-          <InlineImage
+          <InlineMedia
             src={component.src}
             alt={component.alt}
             caption={component.caption}
             credit={component.credit}
+            type={component.type}
           />
+        {:else if slide.component.type === "array"}
+          <div class="flex-wrapper">
+            {#each slide.component.images as item}
+              <InlineMedia
+                src={item.src}
+                alt={item.alt}
+                caption={item.caption}
+                credit={item.credit}
+                type={item.type}
+              />
+            {/each}
+          </div>
         {/if}
         <!-- Add more component types here as needed -->
       </div>
@@ -34,7 +50,7 @@
   </div>
 </section>
 
-<style>
+<style lang="scss">
   section {
     min-height: 100vh;
     display: flex;
@@ -46,19 +62,32 @@
     padding-bottom: 50vh;
   }
 
-  .g-text-box {
-    border: 1px solid #888;
-    background: #fff;
-    padding: 1rem;
+  .slide-content {
+    border: 4px solid #fff;
+    background: var(--bg-blue);
+    padding: 2rem;
     width: 100%;
-    max-width: 600px;
     /* margin: 0 auto 100vh; */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+
+    &.default {
+      max-width: 650px;
+    }
+
+    &.wide {
+      max-width: 1200px;
+    }
   }
 
   .component-wrapper {
     width: 100%;
-    max-width: 600px;
     margin: 0 auto;
+
+    .flex-wrapper {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+    }
   }
 
   :global(h3) {

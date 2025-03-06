@@ -12,6 +12,8 @@
   let map;
   let mapRef;
 
+  const defaultDuration = 2000;
+
   // Map layer action
   function mapLayer(map, { source, layers }) {
     // Wait for style to load
@@ -88,8 +90,8 @@
     if (!map.isStyleLoaded()) return;
 
     // Get all layer IDs from our layer configurations
-    const allLayerIds = layers.flatMap(config => 
-      config.layers.map(layer => `${config.source.id}-${layer.type}`)
+    const allLayerIds = layers.flatMap((config) =>
+      config.layers.map((layer) => `${config.source.id}-${layer.type}`)
     );
 
     // Handle navigation
@@ -97,28 +99,28 @@
       flyToLocation({
         map,
         target: activeController.flyTo,
-        duration: init ? 0 : activeController.duration,
+        duration: init ? 0 : defaultDuration,
       });
     }
 
+    // Hide all other layers first
+    allLayerIds
+      .filter((id) => !id.startsWith(activeController.showLayer))
+      .forEach((id) => {
+        hideLayer({
+          map,
+          layerId: id,
+          duration: init ? 0 : defaultDuration,
+        });
+      });
+
     // Layer visibility
     if (activeController.showLayer) {
-      // Hide all other layers first
-      allLayerIds
-        .filter(id => !id.startsWith(activeController.showLayer))
-        .forEach(id => {
-          hideLayer({
-            map,
-            layerId: id,
-            duration: init ? 0 : activeController.duration,
-          });
-        });
-
       // Show the active layer
       showLayer({
         map,
         layerId: activeController.showLayer,
-        duration: init ? 0 : activeController.duration,
+        duration: init ? 0 : defaultDuration,
       });
     }
 

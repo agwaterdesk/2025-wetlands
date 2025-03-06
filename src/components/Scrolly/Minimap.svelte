@@ -64,8 +64,6 @@
       map.off("move", updateViewport);
     };
   });
-
-  $inspect(bounds);
 </script>
 
 <div class="minimap">
@@ -98,9 +96,7 @@
     position: absolute;
     bottom: 20px;
     right: 20px;
-    padding: 10px;
-    border-radius: 4px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
     z-index: 1;
   }
 </style>
