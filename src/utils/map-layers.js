@@ -13,14 +13,14 @@ export const layers = [
         type: 'fill',
         paint: {
           'fill-color': '#B85450',
-          'fill-opacity': 0.6
+          'fill-opacity': 0
         }
       },
       {
         type: 'line',
         paint: {
           'line-color': '#B85450',
-          'line-width': 2
+          'line-width': 6
         }
       }
     ]
@@ -35,14 +35,14 @@ export const layers = [
         type: 'fill',
         paint: {
           'fill-color': '#B85450',
-          'fill-opacity': 0.6
+          'fill-opacity': 0
         }
       },
       {
         type: 'line',
         paint: {
           'line-color': '#B85450',
-          'line-width': 2
+          'line-width': 6
         }
       }
     ]
@@ -57,14 +57,14 @@ export const layers = [
         type: 'fill',
         paint: {
           'fill-color': '#B85450',
-          'fill-opacity': 0.6
+          'fill-opacity': 0
         }
       },
       {
         type: 'line',
         paint: {
           'line-color': '#B85450',
-          'line-width': 2
+          'line-width': 6
         }
       }
     ]
