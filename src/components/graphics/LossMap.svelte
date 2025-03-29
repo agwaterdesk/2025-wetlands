@@ -22,7 +22,7 @@
     },
     {
       name: "Remaining Wetlands (1980s)",
-      color: "#333",
+      color: "#333333CC",
       strokeDasharray: "1 1",
       strokeWidth: 1,
       coords: [
@@ -172,7 +172,7 @@
                     fill="#333"
                   >
                     <tspan x={start[0] + (end[0] - start[0]) / 2} dy="-4"
-                      >103M acres</tspan
+                      >Equivalent area of</tspan
                     >
                     <tspan x={start[0] + (end[0] - start[0]) / 2} dy="8"
                       >remaining wetlands</tspan
