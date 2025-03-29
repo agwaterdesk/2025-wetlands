@@ -1,0 +1,14 @@
+{
+	"project": {
+		"name": "2025-wetlands",
+		"slug": "2025-wetlands"
+	},
+	"google": {
+		"doc": [
+			{
+				"id": "1b4vEqTmuWIkzIYG_dSqEm8_vyjqHlSnKeS-dIoTFckU",
+				"filepath": "src/data/copy.json"
+			}
+		]
+	}
+}
