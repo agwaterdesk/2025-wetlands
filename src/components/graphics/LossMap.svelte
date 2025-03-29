@@ -14,7 +14,7 @@
       name: "Original Wetlands (1780s)",
       color: "#548687",
       strokeWidth: 0,
-      
+
       coords: [
         [-102, 37],
         [-83.06, 42],
@@ -100,18 +100,19 @@
     <div class="graphic-text">
       <h3>Visualizing the shrinking footprint of U.S. wetlands</h3>
       <p>
-        This map illustrates the dramatic loss of wetlands in the United States
-        over the past two centuries. The <span class="original-wetlands"
-          >larger&nbsp;rectangle</span
-        >
-        represents the estimated extent of wetlands around the 1780s—before widespread
-        development and agricultural expansion—covering about
+        More than half of the United State's wetlands have since been drained,
+        filled, or altered—reshaping ecosystems and affecting everything from
+        flood control to biodiversity. This map uses representative rectangles
+        to illustrate the dramatic loss of wetlands over the past two centuries.
+        The
+        <span class="original-wetlands">larger&nbsp;rectangle</span>
+        shows an area similar in size to the estimated extent of wetlands around
+        the 1780s—before widespread development and agricultural expansion—covering
+        about
         <b>221 million acres</b>. The
         <span class="remaining-wetlands">smaller&nbsp;rectangle</span>
-        shows how much remained by the 1980s: just
-        <b>103 million acres</b>. More than half of the nation's wetlands have
-        since been drained, filled, or altered—reshaping ecosystems and
-        affecting everything from flood control to biodiversity.
+        represents how much remained by the 1980s: just
+        <b>103 million acres</b>.
       </p>
     </div>
     <div class="viz" bind:this={container}>
@@ -170,8 +171,12 @@
                     font-weight="bold"
                     fill="#333"
                   >
-                    <tspan x={start[0] + (end[0] - start[0]) / 2} dy="-4">103M acres</tspan>
-                    <tspan x={start[0] + (end[0] - start[0]) / 2} dy="8">remaining wetlands</tspan>
+                    <tspan x={start[0] + (end[0] - start[0]) / 2} dy="-4"
+                      >103M acres</tspan
+                    >
+                    <tspan x={start[0] + (end[0] - start[0]) / 2} dy="8"
+                      >remaining wetlands</tspan
+                    >
                   </text>
                 {/if}
               {/each}
