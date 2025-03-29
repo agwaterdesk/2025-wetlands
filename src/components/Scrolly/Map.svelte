@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from "svelte";
   import mapboxgl from "mapbox-gl";
   import "mapbox-gl/dist/mapbox-gl.css";
   import Minimap from "./Minimap.svelte";
@@ -13,6 +14,12 @@
   // $inspect(controller);
 
   const defaultDuration = 4000;
+
+  onMount(() => {
+    setTimeout(() => {
+      createMap(mapRef);
+    }, 0);
+  });
 
   // Map layer action
   function mapLayer(map, { source, layers }) {
@@ -39,7 +46,6 @@
       layers.forEach((layer) => {
         const layerId = `${source.id}-${layer.type}`;
         if (!map.getLayer(layerId)) {
- 
           map.addLayer({
             id: layerId,
             type: layer.type,
@@ -71,12 +77,11 @@
 
     map = new mapboxgl.Map({
       container: mapId,
-      interactive: true,
-      center: [-95.646, 38.924],
-      zoom: 8,
+      interactive: false,
       style,
     });
 
+    updateMap({ init: true });
     // Add all layers using the action
     layers.forEach((layerConfig) => {
       mapLayer(map, layerConfig);
@@ -140,7 +145,7 @@
   <div
     id={mapId}
     class="map"
-    use:createMap
+
     bind:this={mapRef}
     aria-hidden="true"
   ></div>

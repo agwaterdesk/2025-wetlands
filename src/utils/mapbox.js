@@ -94,7 +94,7 @@ export function flyToLocation({
     const data = source._data; // Get the GeoJSON data
 
     const bounds = getLayerBounds(data);
-    console.log(bounds);
+
     map.fitBounds(bounds, {
       padding,
       duration: duration || 0,
@@ -104,39 +104,30 @@ export function flyToLocation({
 
 export function showLayer({ map, layerId, duration = defaultDuration }) {
   // Handle compound layers (like kankakee-marsh which has fill and line)
-  const compoundLayers = [`${layerId}-fill`, `${layerId}-line`];
-  
-  // Check if any of the compound layers exist
-  const hasCompoundLayers = compoundLayers.some(layer => map.getLayer(layer));
-  
-  if (hasCompoundLayers) {
-    compoundLayers.forEach((layer) => {
-      if (map.getLayer(layer)) {
-        map.setLayoutProperty(layer, "visibility", "visible");
-      }
-    });
-  } else if (map.getLayer(layerId)) {
-    // If no compound layers exist, try showing the single layer
-    console.log("showing layer", layerId)
+  const layers = [`${layerId}-fill`, `${layerId}-line`];
+
+  layers.forEach((layer) => {
+    if (map.getLayer(layer)) {
+      map.setLayoutProperty(layer, "visibility", "visible");
+    }
+  });
+
+  // If it's a single layer, try showing that
+  if (map.getLayer(layerId)) {
     map.setLayoutProperty(layerId, "visibility", "visible");
   }
 }
 
 export function hideLayer({ map, layerId, duration = defaultDuration }) {
-  // Handle compound layers (like kankakee-marsh which has fill and line)
-  const compoundLayers = [`${layerId}-fill`, `${layerId}-line`];
-  
-  // Check if any of the compound layers exist
-  const hasCompoundLayers = compoundLayers.some(layer => map.getLayer(layer));
-  
-  if (hasCompoundLayers) {
-    compoundLayers.forEach((layer) => {
-      if (map.getLayer(layer)) {
-        map.setLayoutProperty(layer, "visibility", "none");
-      }
-    });
-  } else if (map.getLayer(layerId)) {
-    // If no compound layers exist, try hiding the single layer
+  const layers = [`${layerId}-fill`, `${layerId}-line`];
+
+  layers.forEach((layer) => {
+    if (map.getLayer(layer)) {
+      map.setLayoutProperty(layer, "visibility", "none");
+    }
+  });
+
+  if (map.getLayer(layerId)) {
     map.setLayoutProperty(layerId, "visibility", "none");
   }
 }

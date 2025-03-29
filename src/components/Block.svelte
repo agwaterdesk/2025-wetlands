@@ -13,11 +13,22 @@
     margin-top: 2rem;
     margin-bottom: 2rem;
     position: relative;
+
+    &.no-margin {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
   }
 
   .content .inner {
     width: 100%;
     max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .medium {
+    width: 100%;
+    max-width: 800px;
     margin: 0 auto;
   }
 

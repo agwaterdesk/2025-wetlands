@@ -46,16 +46,18 @@
       },
     };
   }
+
+
 </script>
 
 <Block cls="full" id="scroller-block">
-  <Scroller top={0} bottom={0} bind:index bind:offset bind:progress>
+  <Scroller top={0} bottom={1} bind:index bind:offset bind:progress>
     <div id="scroller-background" slot="background">
       <Chapters current={index} numSlides={content.slides.length} />
 
       <Map
         style="mapbox://styles/startribune/cm8hhq3e6017901s55dfi5dmn"
-        mapId="wetlands"
+        mapId="wetlands-map"
         {controller}
         {content}
       />
@@ -81,6 +83,7 @@
   :global {
     #scroller-block {
       margin-top: 4rem;
+      overflow: hidden;
     }
   }
 

@@ -8,6 +8,7 @@
   let paragraphs = $derived(slide?.text?.split("\n") || []);
 
   let status = slide.status.split(":");
+
 </script>
 
 <section>
@@ -61,11 +62,25 @@
     gap: 1rem;
     padding-top: 50vh;
     padding-bottom: 50vh;
+    position: relative;
+    // border-top: 1px solid #fff;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 50dvh;
+      right: 1px;
+      width: 10px;
+      height: 10px;
+      background: white;
+      opacity: 0.5;
+      border-radius: 50%;
+    }
   }
 
   .slide-content {
     // border: 4px solid #fff;
-    background: var(--project-color-light-blue);
+    background: var(--bg-color);
     padding: 2rem;
     width: 100%;
     margin-left: 2rem;
@@ -97,7 +112,7 @@
     z-index: 20;
 
     &.level-1 {
-      --status-bg-fill: #6DA34D;
+      --status-bg-fill: #6da34d;
     }
 
     &.level-2 {

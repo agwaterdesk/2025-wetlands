@@ -21,9 +21,11 @@ $secondary-color: #B85450;
     --project-color-teal: #548687;
     --project-color-green: #6DA34D;
 
+    --bg-color: #F7F2DE;
+
 
 }
 
 main {
-    background-color: var(--project-color-light-blue)
+    background-color: var(--bg-color);
 }

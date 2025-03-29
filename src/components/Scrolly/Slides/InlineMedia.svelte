@@ -1,13 +1,12 @@
 <script>
   let { src, alt, caption, credit, type } = $props();
-
 </script>
 
 <figure>
   {#if type === "image"}
     <img src={`images/${src}`} {alt} />
   {:else if type === "video"}
-    <video src={`videos/${src}`} {alt} autoplay muted  />
+    <video src={`videos/${src}`} {alt} autoplay muted />
   {/if}
   {#if caption || credit}
     <figcaption>
@@ -21,7 +20,7 @@
   {/if}
 </figure>
 
-<style>
+<style lang="scss">
   figure {
     margin: 0;
     margin-top: 1rem;
@@ -43,14 +42,16 @@
     color: #666;
   }
 
-  .caption {
-    display: block;
-    margin-bottom: 0.25rem;
-  }
+  :global {
+    .caption {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
 
-  .credit {
-    display: block;
-    font-style: italic;
-    font-size: 0.8125rem;
+    .credit {
+      display: block;
+      font-style: italic;
+      font-size: 0.8125rem;
+    }
   }
 </style>
