@@ -165,14 +165,13 @@
       }
 
       .original-wetlands {
-        padding-bottom: 0.125rem;
-        border-bottom: 3px solid var(--project-color-yellow);;
+
+        border-bottom: 2px solid var(--project-color-yellow);;
         // border: 2px solid var(--project-color-yellow);
       }
 
       .remaining-wetlands {
-        padding-bottom: 0.125rem;
-        border-bottom: 3px solid #333333;
+        border-bottom: 2px solid #333333;
         // border: 2px solid #666;
       }
     }
