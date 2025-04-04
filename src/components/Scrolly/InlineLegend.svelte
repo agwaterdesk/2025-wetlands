@@ -6,7 +6,7 @@
   // Find the matching layer config
   const layerConfig = $derived(layers.find((layer) => layer.source.id === id));
   const coordinates = $derived(
-    layerConfig?.source.data.features.flatMap((feature) => {
+    layerConfig?.source.data.features?.flatMap((feature) => {
       // Handle both single and multi-polygon geometries
       const coords = feature.geometry.coordinates;
       if (feature.geometry.type === "MultiPolygon") {
@@ -18,6 +18,7 @@
   );
   const fillColor = $derived(
     layerConfig?.layers.find((l) => l.type === "fill")?.paint["fill-color"] ||
+      layerConfig?.layers.find((l) => l.type === "circle")?.paint["circle-color"] ||
       "#ccc"
   );
   const strokeColor = $derived(
@@ -75,13 +76,24 @@
     height={HEIGHT}
     viewBox="0 0 {WIDTH} {HEIGHT}"
   >
-    <path
-      d={svgPath}
-      fill={fillColor}
-      fill-opacity="1"
-      stroke="black"
-      stroke-width="1"
-    />
+    {#if id === "peat-bogs"}
+      <!-- Show scattered circles for peat bogs -->
+      <g>
+        <circle cx="10" cy="20" r="3" fill={fillColor} stroke="black"/>
+        <circle cx="20" cy="15" r="3" fill={fillColor} stroke="black"/>
+        <circle cx="30" cy="25" r="3" fill={fillColor} stroke="black"/>
+        <circle cx="15" cy="30" r="3" fill={fillColor} stroke="black"/>
+        <circle cx="25" cy="10" r="3" fill={fillColor} stroke="black"/>
+      </g>
+    {:else}
+      <path
+        d={svgPath}
+        fill={fillColor}
+        fill-opacity="1"
+        stroke="black"
+        stroke-width="1"
+      />
+    {/if}
   </svg>
   <span class="text">{text}</span>
 </span>

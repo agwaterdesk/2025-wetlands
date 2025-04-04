@@ -6,6 +6,7 @@
   import Footer from "$components/Footer.svelte";
   import SeriesRefer from "./components/SeriesRefer.svelte";
   import LossMap from "./components/graphics/LossMap.svelte";
+  import Credits from "$components/Credits.svelte"
   import "$styles/styles.scss";
 
   let index, offset, progress;
@@ -41,6 +42,7 @@
         />
       {/if}
     {/each}
+    <Credits {copy} />
     <Footer {copy} />
   </main>
 {/if}

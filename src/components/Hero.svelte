@@ -45,10 +45,9 @@
     }
 
     figcaption {
-      padding-right: 1rem;
+      margin-top: 0.5rem;
+      margin-right: 1rem;
       text-align: right;
-      float: right;
-      display: contents;
     }
   }
 

@@ -7,8 +7,29 @@ import cairoLake from "../data/cairo-lake.json";
 import tensasRiverNws from "../data/tensas-river-nws.json";
 import atchafalayaRiver from "../data/atchafalaya-river.json";
 import wetlandsRectangles from "../data/wetland-rectangles.geo.json";
+import peatBogs from "../data/peat-bogs.json";
 
 export const layers = [
+  {
+    source: {
+      id: "peat-bogs",
+      data: peatBogs
+    },
+    layers: [
+      {
+        type: "circle",
+        paint: {
+          "circle-color": "#F1B82D",
+          "circle-radius": 2.5,
+          "circle-opacity": 1,
+          "circle-stroke-width": 1
+        },
+        layout: {
+          "visibility": "visible"
+        }
+      }
+    ]
+  },
   {
     source: {
       id: "kankakee-marsh",

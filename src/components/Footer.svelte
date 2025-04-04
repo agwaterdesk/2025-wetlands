@@ -8,17 +8,8 @@
 <Block cls="full no-margin">
   <footer>
     <div class="container">
-      <div class="about-section">
-        <div class="text">
-          <h2>About this series</h2>
-          <p>{@html copy.footer.about}</p>
-        </div>
-
-        <img src="images/Down the Drain Logo Composite.png" alt="" />
-      </div>
-
       {#if relatedStories.length > 0}
-        <div class="related-section">
+        <div class="related-section section">
           <h2>More in this series</h2>
           <div class="related-grid">
             {#each relatedStories as story}
@@ -32,6 +23,15 @@
           </div>
         </div>
       {/if}
+
+      <div class="about-section section">
+        <div class="text">
+          <h2>About this series</h2>
+          <p>{@html copy.footer.about}</p>
+        </div>
+
+        <img src="images/Down the Drain Logo Composite.png" alt="" />
+      </div>
     </div>
   </footer>
 </Block>
@@ -39,7 +39,7 @@
 <style lang="scss">
   footer {
     background-color: var(--bg-color);
-    padding: 2rem 0;
+    padding: 2rem 0 6rem;
 
     z-index: 1;
   }
@@ -48,6 +48,9 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
   }
 
   h2 {
@@ -56,8 +59,8 @@
     color: #333;
   }
 
+
   .about-section {
-    margin-bottom: 3rem;
     display: flex;
     gap: 2rem;
 
@@ -70,7 +73,7 @@
     @media (max-width: 580px) {
       flex-direction: column;
 
-      img { 
+      img {
         max-width: 100%;
       }
     }

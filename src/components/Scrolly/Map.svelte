@@ -131,12 +131,22 @@
     if (activeController.showLayer) {
       // Handle multiple layers
       const layerIds = activeController.showLayer.split(',');
+      
       layerIds.forEach(layerId => {
-        showLayer({
-          map,
-          layerId: layerId.trim(),
-          duration: init ? 0 : defaultDuration,
-        });
+        const sourceConfig = layers.find(l => l.source.id === layerId.trim());
+        if (sourceConfig) {
+          // Show all layers for this source
+          sourceConfig.layers.forEach(layer => {
+            const fullLayerId = `${layerId.trim()}-${layer.type}`;
+     
+            
+            showLayer({
+              map,
+              layerId: fullLayerId,
+              duration: init ? 0 : defaultDuration,
+            });
+          });
+        }
       });
 
       // Log acreage if wetland layers are being shown
