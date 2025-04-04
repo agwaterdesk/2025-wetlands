@@ -6,10 +6,10 @@
   // Find the matching layer config
   const layerConfig = $derived(layers.find((layer) => layer.source.id === id));
   const coordinates = $derived(
-    layerConfig?.source.data.features.flatMap(feature => {
+    layerConfig?.source.data.features.flatMap((feature) => {
       // Handle both single and multi-polygon geometries
       const coords = feature.geometry.coordinates;
-      if (feature.geometry.type === 'MultiPolygon') {
+      if (feature.geometry.type === "MultiPolygon") {
         return coords.flat(2); // Flatten to get all coordinate pairs
       } else {
         return coords[0]; // For single polygons, get the first ring
@@ -29,8 +29,6 @@
   const WIDTH = 40;
   const HEIGHT = 40;
 
-  
-
   // Find the bounds
   const bounds = $derived(
     coordinates.reduce(
@@ -47,7 +45,6 @@
       { minX: Infinity, maxX: -Infinity, minY: Infinity, maxY: -Infinity }
     )
   );
-
 
   // Create SVG path from coordinates
   const points = $derived(
@@ -69,7 +66,6 @@
   );
 
   const svgPath = $derived(`M${points.join("L")}Z`);
-
 </script>
 
 <span class="legend-wrapper">
@@ -91,15 +87,44 @@
 </span>
 
 <style lang="scss">
-  .legend-wrapper {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-    background-color: #00000010;
-    font-weight: 600;
+  :global {
+    span.legend-wrapper {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      background-color: #00000010;
+      font-weight: 600;
+
+      &.column {
+        flex-direction: column;
+        align-items: flex-start;
+
+        .legend-item {
+          display: grid;
+          grid-template-columns: 40px 1fr;
+          align-items: center;
+          justify-items: end;
+          gap: 0.5rem;
+
+          .original-wetlands-leg {
+            width: 40px;
+            height: 20px;
+            background-color: #f1b82daa;
+            border: 1px solid #f1b82d;
+          }
+
+          .remaining-wetlands-leg {
+            width: 30px;
+            height: 10px;
+            background-color: #66666650;
+            border: 1px solid #666666;
+          }
+        }
+      }
+    }
   }
 
   .mini-map {

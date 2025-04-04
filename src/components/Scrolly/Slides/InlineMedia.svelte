@@ -4,7 +4,7 @@
 
 <figure>
   {#if type === "image"}
-    <img src={`images/${src}`} {alt} />
+    <img src={`images/webp/${src}`} {alt} />
   {:else if type === "video"}
     <video src={`videos/${src}`} {alt} autoplay muted />
   {/if}

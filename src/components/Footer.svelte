@@ -11,7 +11,7 @@
       <div class="about-section">
         <div class="text">
           <h2>About this series</h2>
-          <p>{copy.footer.about}</p>
+          <p>{@html copy.footer.about}</p>
         </div>
 
         <img src="images/Down the Drain Logo Composite.png" alt="" />

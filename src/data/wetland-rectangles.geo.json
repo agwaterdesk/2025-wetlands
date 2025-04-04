@@ -1,0 +1,71 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Original Wetlands (1780s)"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -102,
+                37
+              ],
+              [
+                -83.06,
+                37
+              ],
+              [
+                -83.06,
+                42.00482129436723
+              ],
+              [
+                -102,
+                42.00482129436723
+              ],
+              [
+                -102,
+                37
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "name": "Remaining Wetlands (1980s)"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                -97.265,
+                37
+              ],
+              [
+                -83.06,
+                37
+              ],
+              [
+                -83.06,
+                40.75361597077542
+              ],
+              [
+                -97.265,
+                40.75361597077542
+              ],
+              [
+                -97.265,
+                37
+              ]
+            ]
+          ]
+        }
+      }
+    ]
+  }
