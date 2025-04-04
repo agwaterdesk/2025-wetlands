@@ -10,8 +10,12 @@
     <div class="container">
       <div class="about-section">
         <div class="text">
-          <h2>About this series</h2>
-          <p>{copy.footer.about}</p>
+          <h2 class="font-utility-heading-03 text-text-secondary">
+            About this series
+          </h2>
+          <p class="text-text-secondary font-utility-body-reg-03">
+            {copy.footer.about}
+          </p>
         </div>
 
         <img src="images/Down the Drain Logo Composite.png" alt="" />
@@ -19,14 +23,18 @@
 
       {#if relatedStories.length > 0}
         <div class="related-section">
-          <h2>More in this series</h2>
+          <h2 class="font-utility-heading-06 text-text-secondary">
+            More in this series
+          </h2>
           <div class="related-grid">
             {#each relatedStories as story}
               <a href={story.url} class="story-card">
                 {#if story.thumbnail}
                   <img src={story.thumbnail} alt={story.title} />
                 {/if}
-                <h3>{story.title}</h3>
+                <h3 class="font-utility-body-reg-03 text-text-primary">
+                  {story.title}
+                </h3>
               </a>
             {/each}
           </div>
@@ -51,9 +59,9 @@
   }
 
   h2 {
-    font-size: 1.5rem;
+    // font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: #333;
+    // color: #333;
   }
 
   .about-section {
@@ -70,7 +78,7 @@
     @media (max-width: 580px) {
       flex-direction: column;
 
-      img { 
+      img {
         max-width: 100%;
       }
     }
@@ -78,7 +86,7 @@
 
   .about-section p {
     line-height: 1.6;
-    color: #666;
+    // color: #666;
   }
 
   .related-section {
@@ -115,8 +123,9 @@
   .story-card h3 {
     padding: 1rem;
     margin: 0;
-    font-size: 1.1rem;
-    color: #333;
+    line-height: 1.75;
+    // font-size: 1.1rem;
+    // color: #333;
   }
 
   @media (max-width: 768px) {

@@ -17,7 +17,7 @@
   const components = {
     SeriesRefer,
     Scrolly,
-    LossMap
+    LossMap,
   };
 </script>
 
@@ -29,7 +29,11 @@
     {#each copy.content as content}
       {#if content.type == "text"}
         {#each content.value.split("\n") as p}
-          <Block cls="content"><p>{@html p}</p></Block>
+          <Block cls="content"
+            ><p class="font-graphik-regular text-text-primary">
+              {@html p}
+            </p></Block
+          >
         {/each}
       {:else if content.type == "component"}
         <svelte:component
@@ -49,8 +53,9 @@
   :global {
     p {
       line-height: 1.7;
+      b {
+        font-family: "graphik-bold";
+      }
     }
-
-  
   }
 </style>

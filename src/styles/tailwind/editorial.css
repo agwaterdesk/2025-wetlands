@@ -1,4 +1,3 @@
-
 @tailwind components;
 @layer components {
   /* Display */
@@ -43,7 +42,7 @@
   /* Heading News */
   /* Publico Headline Condensed*/
   .font-editorial-news-heading-01 {
-    @apply font-publico-banner-condensed-medium font-medium leading-title tracking-normal lg:text-66 text-40;
+    @apply font-publico-banner-condensed-medium font-medium leading-title tracking-normal lg:text-82 md:text-72 text-52;
   }
 
   .font-editorial-news-heading-02 {

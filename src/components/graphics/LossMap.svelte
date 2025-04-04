@@ -98,8 +98,10 @@
 <Block cls="medium">
   <div class="graphic-wrapper">
     <div class="graphic-text">
-      <h3>Visualizing the shrinking footprint of U.S. wetlands</h3>
-      <p>
+      <h3 class="font-utility-heading-04 text-text-primary mb-2">
+        Visualizing the shrinking footprint of U.S. wetlands
+      </h3>
+      <p class="font-graphik-regular text-text-primary">
         More than half of the United State's wetlands have since been drained,
         filled, or altered—reshaping ecosystems and affecting everything from
         flood control to biodiversity. This map uses representative rectangles
@@ -186,7 +188,7 @@
       </svg>
     </div>
     <figcaption>
-      <span class="credit"
+      <span class="credit font-utility-meta-reg-02 text-text-secondary"
         >Data: <a
           href="https://water.usgs.gov/nwsum/WSP2425/history.html"
           target="_blank">USGS</a
@@ -203,9 +205,9 @@
       border: 3px solid;
       padding: 1px 0.25rem;
     }
-    h3 {
-      font-weight: bold;
-    }
+    // h3 {
+    //   font-weight: bold;
+    // }
 
     .original-wetlands {
       border-color: var(--project-color-teal);
