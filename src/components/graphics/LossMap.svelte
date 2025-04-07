@@ -125,7 +125,7 @@
               {@html us.features
                 .map(
                   (f) =>
-                    `<path d="${geoPath().projection(currentProjection)(f)}" fill="#F7F2DE" stroke="#999" stroke-width="0.5"/>`
+                    `<path d="${geoPath().projection(currentProjection)(f)}" fill="none" stroke="#F7F2DE" stroke-width="0.5"/>`
                 )
                 .join("")}
 

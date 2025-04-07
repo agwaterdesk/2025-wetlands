@@ -111,7 +111,14 @@
 
     // Hide all other layers first
     allLayerIds
-      .filter((id) => !id.startsWith(activeController.showLayer))
+      .filter((id) => {
+        // If showLayer is a comma-separated list, check if the current layer is not in that list
+        if (activeController.showLayer?.includes(',')) {
+          return !activeController.showLayer.split(',').some(layerId => id.startsWith(layerId));
+        }
+        // Otherwise, check if the current layer doesn't start with the showLayer value
+        return !id.startsWith(activeController.showLayer);
+      })
       .forEach((id) => {
         hideLayer({
           map,
@@ -122,12 +129,30 @@
 
     // Layer visibility
     if (activeController.showLayer) {
-      // Show the active layer
-      showLayer({
-        map,
-        layerId: activeController.showLayer,
-        duration: init ? 0 : defaultDuration,
+      // Handle multiple layers
+      const layerIds = activeController.showLayer.split(',');
+      
+      layerIds.forEach(layerId => {
+        const sourceConfig = layers.find(l => l.source.id === layerId.trim());
+        if (sourceConfig) {
+          // Show all layers for this source
+          sourceConfig.layers.forEach(layer => {
+            const fullLayerId = `${layerId.trim()}-${layer.type}`;
+     
+            
+            showLayer({
+              map,
+              layerId: fullLayerId,
+              duration: init ? 0 : defaultDuration,
+            });
+          });
+        }
       });
+
+      // Log acreage if wetland layers are being shown
+      if (layerIds.some(id => id.includes('wetlands'))) {
+        // logWetlandAcreage();
+      }
     }
 
     if (preloadTiles) return;

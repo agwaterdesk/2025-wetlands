@@ -8,6 +8,7 @@
 <Block cls="full no-margin">
   <footer>
     <div class="container">
+
       <div class="about-section">
         <div class="text">
           <h2 class="font-utility-heading-03 text-text-secondary">
@@ -26,6 +27,7 @@
           <h2 class="font-utility-heading-06 text-text-secondary">
             More in this series
           </h2>
+
           <div class="related-grid">
             {#each relatedStories as story}
               <a href={story.url} class="story-card">
@@ -40,6 +42,15 @@
           </div>
         </div>
       {/if}
+
+      <div class="about-section section">
+        <div class="text">
+          <h2>About this series</h2>
+          <p>{@html copy.footer.about}</p>
+        </div>
+
+        <img src="images/Down the Drain Logo Composite.png" alt="" />
+      </div>
     </div>
   </footer>
 </Block>
@@ -47,7 +58,7 @@
 <style lang="scss">
   footer {
     background-color: var(--bg-color);
-    padding: 2rem 0;
+    padding: 2rem 0 6rem;
 
     z-index: 1;
   }
@@ -56,6 +67,9 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
   }
 
   h2 {
@@ -64,8 +78,8 @@
     // color: #333;
   }
 
+
   .about-section {
-    margin-bottom: 3rem;
     display: flex;
     gap: 2rem;
 

@@ -32,6 +32,12 @@
     margin: 0 auto;
   }
 
+  .wide {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
   /* Default (mobile) */
   .full {
     margin-left: -1rem;
