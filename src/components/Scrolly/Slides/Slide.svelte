@@ -173,6 +173,8 @@
     line-height: 1.2;
     color: #434343;
 
+  }
+
   :global {
     .slide-content {
       h2 {
