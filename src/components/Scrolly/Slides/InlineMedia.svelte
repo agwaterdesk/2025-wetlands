@@ -50,8 +50,8 @@
 
     .credit {
       display: block;
-      font-style: italic;
-      font-size: 0.8125rem;
+      // font-style: italic;
+      // font-size: 0.8125rem;
     }
   }
 </style>

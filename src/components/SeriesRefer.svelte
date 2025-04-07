@@ -8,10 +8,15 @@
       src="icons/ag-water-logo.webp"
       alt="Mississippi River Ag & Water Desk logo"
     />
-    <p>
-      Published in collaboration with the <a href="https://agwaterdesk.org/" target="_blank">Mississippi River Ag & Water Desk</a> as
-      part of their series <a href="" target="_blank">"Down the Drain: A watershed moment for America's
-        greatest wetlands."</a>
+    <p class="">
+      Published in collaboration with the <a
+        href="https://agwaterdesk.org/"
+        target="_blank">Mississippi River Ag & Water Desk</a
+      >
+      as part of their series
+      <a href="" target="_blank"
+        >"Down the Drain: A watershed moment for America's greatest wetlands."</a
+      >
     </p>
   </div>
 </Block>
@@ -27,6 +32,7 @@
     gap: 2rem;
     align-items: center;
     text-align: left;
+    font-family: "graphik-regular";
 
     img {
       width: 100%;
