@@ -9,18 +9,14 @@
     <div class="art">
       <img src="images/webp/{copy.hero.src}" alt="" />
     </div>
-    <figcaption>
+    <figcaption class="font-utility-meta-reg-02 text-text-secondary">
       <span class="caption">{copy.hero.caption}</span>
-
+  
       <span class="credit">{copy.hero.credit}</span>
     </figcaption>
   </div>
 
-  <figcaption class="font-utility-meta-reg-02 text-text-secondary">
-    <span class="caption">{copy.hero.caption}</span>
 
-    <span class="credit">{copy.hero.credit}</span>
-  </figcaption>
 </Block>
 
 <Block cls="content">
