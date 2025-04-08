@@ -9,18 +9,7 @@
   <footer>
     <div class="container">
 
-      <div class="about-section">
-        <div class="text">
-          <h2 class="font-utility-heading-03 text-text-secondary">
-            About this series
-          </h2>
-          <p class="text-text-secondary font-utility-body-reg-03">
-            {copy.footer.about}
-          </p>
-        </div>
-
-        <img src="images/Down the Drain Logo Composite.png" alt="" />
-      </div>
+    
 
       {#if relatedStories.length > 0}
         <div class="related-section">
@@ -34,9 +23,14 @@
                 {#if story.thumbnail}
                   <img src={story.thumbnail} alt={story.title} />
                 {/if}
+               <div class="text">
                 <h3 class="font-utility-body-reg-03 text-text-primary">
                   {story.title}
                 </h3>
+                <span class="font-utility-label-reg-caps-03 text-text-secondary">
+                  {story.outlet}
+                </span>
+               </div>
               </a>
             {/each}
           </div>
@@ -45,7 +39,7 @@
 
       <div class="about-section section">
         <div class="text">
-          <h2>About this series</h2>
+          <h2 class="font-utility-heading-06 text-text-secondary">About this series</h2>
           <p>{@html copy.footer.about}</p>
         </div>
 
@@ -59,7 +53,7 @@
   footer {
     background-color: var(--bg-color);
     padding: 2rem 0 6rem;
-
+    margin: 0 2rem;
     z-index: 1;
   }
 
@@ -134,7 +128,7 @@
     object-fit: cover;
   }
 
-  .story-card h3 {
+  .story-card .text {
     padding: 1rem;
     margin: 0;
     line-height: 1.75;
