@@ -5,8 +5,6 @@
   // Group by section title
   let grouped = {};
 
-  console.log(copy.credits);
-
   copy.credits.forEach((entry) => {
     if (!grouped[entry.title]) {
       grouped[entry.title] = [];

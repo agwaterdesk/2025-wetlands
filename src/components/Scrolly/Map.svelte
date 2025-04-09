@@ -93,7 +93,7 @@
     activeController = controller,
     preloadTiles = false,
   }) {
-    if (!map.isStyleLoaded()) return;
+    if (!map || !map.isStyleLoaded()) return;
 
     // Get all layer IDs from our layer configurations
     const allLayerIds = layers.flatMap((config) =>
@@ -102,65 +102,77 @@
 
     // Handle navigation
     if (activeController.flyTo) {
-      flyToLocation({
-        map,
-        target: activeController.flyTo,
-        duration: init ? 0 : defaultDuration,
-      });
+      try {
+        await flyToLocation({
+          map,
+          target: activeController.flyTo,
+          duration: init ? 0 : defaultDuration,
+        });
+      } catch (err) {}
     }
 
     // Hide all other layers first
-    allLayerIds
-      .filter((id) => {
-        // If showLayer is a comma-separated list, check if the current layer is not in that list
-        if (activeController.showLayer?.includes(',')) {
-          return !activeController.showLayer.split(',').some(layerId => id.startsWith(layerId));
-        }
-        // Otherwise, check if the current layer doesn't start with the showLayer value
-        return !id.startsWith(activeController.showLayer);
-      })
-      .forEach((id) => {
-        hideLayer({
+    const layersToHide = allLayerIds.filter((id) => {
+      if (activeController.showLayer?.includes(',')) {
+        return !activeController.showLayer.split(',').some(layerId => id.startsWith(layerId));
+      }
+      return !id.startsWith(activeController.showLayer);
+    });
+    
+    for (const id of layersToHide) {
+      try {
+        await hideLayer({
           map,
           layerId: id,
           duration: init ? 0 : defaultDuration,
         });
-      });
+      } catch (err) {}
+    }
 
     // Layer visibility
     if (activeController.showLayer) {
-      // Handle multiple layers
       const layerIds = activeController.showLayer.split(',');
       
-      layerIds.forEach(layerId => {
+      for (const layerId of layerIds) {
         const sourceConfig = layers.find(l => l.source.id === layerId.trim());
         if (sourceConfig) {
-          // Show all layers for this source
-          sourceConfig.layers.forEach(layer => {
+          for (const layer of sourceConfig.layers) {
             const fullLayerId = `${layerId.trim()}-${layer.type}`;
-     
-            
-            showLayer({
-              map,
-              layerId: fullLayerId,
-              duration: init ? 0 : defaultDuration,
-            });
-          });
+            try {
+              await showLayer({
+                map,
+                layerId: fullLayerId,
+                duration: init ? 0 : defaultDuration,
+              });
+            } catch (err) {}
+          }
         }
-      });
-
-      // Log acreage if wetland layers are being shown
-      if (layerIds.some(id => id.includes('wetlands'))) {
-        // logWetlandAcreage();
       }
     }
-
-    if (preloadTiles) return;
   }
 
-  // Reactive statement to update map when controller changes
+  // Create a more robust effect for handling map updates
+  let lastUpdateId = $state(null);
+
   $effect(() => {
-    if (map && controller) {
+    if (!map || !controller) return;
+    
+    if (lastUpdateId === controller.id) return;
+
+    console.log('Map update:', controller.id);
+    lastUpdateId = controller.id;
+    
+    // Ensure the map is ready before updating
+    if (!map.isStyleLoaded()) {
+      const checkStyle = () => {
+        if (map.isStyleLoaded()) {
+          updateMap({});
+        } else {
+          setTimeout(checkStyle, 100);
+        }
+      };
+      checkStyle();
+    } else {
       updateMap({});
     }
   });
