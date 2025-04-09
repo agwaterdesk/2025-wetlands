@@ -23,7 +23,7 @@
         <h3>{title}</h3>
         <ul>
           {#each people as person}
-            <li>{person.name}, <em>{person.org}</em></li>
+            <li>{@html person.name}{#if person.name && person.org}, {/if} <em>{@html person.org}</em></li>
           {/each}
         </ul>
       </div>
