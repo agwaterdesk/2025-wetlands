@@ -1,11 +1,12 @@
 <script>
+  const base = import.meta.env.BASE_URL;
   import Block from "$components/Block.svelte";
 </script>
 
 <Block cls="medium">
   <div class="series-refer">
     <img
-      src="icons/ag-water-logo.webp"
+      src="{base}icons/ag-water-logo.webp"
       alt="Mississippi River Ag & Water Desk logo"
     />
     <p class="">

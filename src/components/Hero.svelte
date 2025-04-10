@@ -1,4 +1,5 @@
 <script>
+  const base = import.meta.env.BASE_URL;
   import Block from "./Block.svelte";
 
   let { copy } = $props();
@@ -7,7 +8,7 @@
 <Block cls="full no-margin">
   <div class="hero">
     <div class="art">
-      <img src="images/webp/{copy.hero.src}" alt="" />
+      <img src="{base}images/webp/{copy.hero.src}" alt="" />
     </div>
     <figcaption class="font-utility-meta-reg-02 text-text-secondary">
       <span class="caption">{copy.hero.caption}</span>

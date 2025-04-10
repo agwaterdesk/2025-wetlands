@@ -159,7 +159,7 @@
     
     if (lastUpdateId === controller.id) return;
 
-    console.log('Map update:', controller.id);
+    // console.log('Map update:', controller.id);
     lastUpdateId = controller.id;
     
     // Ensure the map is ready before updating
