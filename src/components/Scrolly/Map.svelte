@@ -201,13 +201,13 @@
 <style>
   .map-container {
     position: relative;
-    height: var(--viewport-height);
+    height: calc(var(--viewport-height) - var(--header-height, 0px));
     width: 100%;
     max-width: 100%;
   }
 
   .map {
     width: 100%;
-    min-height: var(--viewport-height);
+    min-height: calc(var(--viewport-height) - var(--header-height, 0px));
   }
 </style>

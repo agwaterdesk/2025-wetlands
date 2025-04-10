@@ -48,9 +48,7 @@
     };
   }
 
-  const headerHeight = $derived(
-    document.getElementById("global-header")?.offsetHeight || 0
-  );
+  const headerHeight = 49;
   const windowHeight = $derived(window.innerHeight || 0);
 </script>
 
@@ -62,7 +60,11 @@
     bind:offset
     bind:progress
   >
-    <div id="scroller-background" slot="background">
+    <div
+      id="scroller-background"
+      slot="background"
+      style:--header-height="{headerHeight}px"
+    >
       <Chapters current={index} numSlides={content.slides.length} />
 
       <Map
