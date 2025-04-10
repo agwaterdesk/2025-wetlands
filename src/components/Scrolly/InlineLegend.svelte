@@ -108,7 +108,6 @@
       padding: 0.25rem 0.5rem;
       border-radius: 4px;
       background-color: #00000010;
-      font-weight: 600;
 
       &.column {
         flex-direction: column;

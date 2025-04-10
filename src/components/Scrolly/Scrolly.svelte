@@ -4,7 +4,6 @@
   import Map from "./Map.svelte";
   import Slide from "./Slides/Slide.svelte";
   import InlineLegend from "./InlineLegend.svelte";
-  import LossMap from "$components/graphics/LossMap.svelte";
   import Chapters from "./Chapters.svelte";
   import { mount, unmount } from "svelte";
   import { fade } from "svelte/transition";
@@ -48,18 +47,23 @@
       },
     };
   }
+
+  const headerHeight = $derived(
+    document.getElementById("global-header")?.offsetHeight || 0
+  );
+  const windowHeight = $derived(window.innerHeight || 0);
 </script>
 
 <Block cls="full" id="scroller-block">
-  <Scroller top={0} bottom={1} bind:index bind:offset bind:progress>
+  <Scroller
+    top={headerHeight / windowHeight}
+    bottom={1}
+    bind:index
+    bind:offset
+    bind:progress
+  >
     <div id="scroller-background" slot="background">
       <Chapters current={index} numSlides={content.slides.length} />
-
-      {#if controller.type == "graphic"}
-        <div class="graphic-container" transition:fade>
-          <LossMap />
-        </div>
-      {/if}
 
       <Map
         style="mapbox://styles/startribune/cm8hhq3e6017901s55dfi5dmn"
@@ -91,21 +95,5 @@
       margin-top: 4rem;
       overflow: hidden;
     }
-  }
-
-  #scroller-background {
-    background: #ddd;
-    height: 100svh;
-    width: 100%;
-  }
-
-  .graphic-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #081521;
-    z-index: 100;
   }
 </style>

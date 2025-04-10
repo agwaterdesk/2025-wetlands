@@ -19,16 +19,15 @@
 
 <Block cls="content">
   <h1 class="font-editorial-news-heading-01 text-text-primary text-pretty">
-    {copy.meta.title}
+    {@html copy.meta.title}
   </h1>
 
   <p class="byline font-utility-label-bold-02 text-text-primary mb-2">
-    By <a href="" target="_blank">James Eli Shiffer</a> and
-    <a href="" target="_blank">Jared Whalen</a>
+    {@html copy.meta.byline}
   </p>
 
   <p class="pubdate font-utility-label-reg-caps-03 text-text-secondary">
-    April XX, 2025
+    {@html copy.meta.pubdate}
   </p>
 </Block>
 
@@ -52,6 +51,14 @@
       margin-top: 0.5rem;
       margin-right: 1rem;
       text-align: right;
+    }
+  }
+
+  :global {
+    .byline {
+      a {
+        text-decoration: underline;
+      }
     }
   }
 

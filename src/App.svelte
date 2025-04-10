@@ -6,7 +6,7 @@
   import Footer from "$components/Footer.svelte";
   import SeriesRefer from "./components/SeriesRefer.svelte";
   import LossMap from "./components/graphics/LossMap.svelte";
-  import Credits from "$components/Credits.svelte"
+  import Credits from "$components/Credits.svelte";
   import "$styles/styles.scss";
 
   let index, offset, progress;
@@ -20,6 +20,8 @@
     Scrolly,
     LossMap,
   };
+
+  
 </script>
 
 <svelte:window bind:innerHeight={viewportHeight} />
@@ -57,6 +59,12 @@
       line-height: 1.7;
       b {
         font-family: "graphik-bold";
+        font-weight: 500;
+      }
+
+      strong {
+        font-family: "graphik-bold";
+        font-weight: 500;
       }
     }
   }

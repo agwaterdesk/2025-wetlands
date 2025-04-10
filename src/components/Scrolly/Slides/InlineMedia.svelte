@@ -1,12 +1,14 @@
 <script>
+  const base = import.meta.env.BASE_URL;
   let { src, alt, caption, credit, type } = $props();
+  
 </script>
 
 <figure>
   {#if type === "image"}
-    <img src={`images/webp/${src}`} {alt} />
+    <img src={`${base}images/webp/${src}`} {alt} />
   {:else if type === "video"}
-    <video src={`videos/${src}`} {alt} autoplay muted />
+    <video src={`${base}videos/${src}`} controls muted />
   {/if}
   {#if caption || credit}
     <figcaption>

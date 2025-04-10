@@ -7,7 +7,6 @@
   // Split text into paragraphs
   let paragraphs = $derived(slide?.text?.split("\n") || []);
 
-
   let status = slide?.status?.split(":");
 
 </script>
@@ -17,13 +16,12 @@
     class="slide-content {slide.layout || 'default'}"
     use:hydrateInlineLegends
   >
-
     {#if status}
       <div class="status level-{status[0]} text-text-primary">{status[1]}</div>
     {/if}
 
     {#each paragraphs as p}
-      <p class="font-graphik-regular text-text-primary">{@html p}</p>
+      <p class="font-graphik-regular text-text-primary">{@html p.trim()}</p>
       <!-- {@html marked(p)} -->
     {/each}
 
@@ -161,7 +159,6 @@
     line-height: 1.8;
   }
 
-
   :global(p strong) {
     font-family: "graphik-bold";
   }
@@ -172,7 +169,6 @@
     font-weight: 400;
     line-height: 1.2;
     color: #434343;
-
   }
 
   :global {
@@ -184,8 +180,7 @@
       }
 
       .original-wetlands {
-
-        border-bottom: 2px solid var(--project-color-yellow);;
+        border-bottom: 2px solid var(--project-color-yellow);
         // border: 2px solid var(--project-color-yellow);
       }
 
@@ -194,6 +189,5 @@
         // border: 2px solid #666;
       }
     }
-
   }
 </style>
