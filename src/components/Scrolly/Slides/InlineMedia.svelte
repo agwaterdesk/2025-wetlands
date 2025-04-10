@@ -8,7 +8,7 @@
   {#if type === "image"}
     <img src={`${base}images/webp/${src}`} {alt} />
   {:else if type === "video"}
-    <video src={`${base}videos/${src}`} controls muted />
+    <video src={`${base}videos/${src}`} autoplay muted />
   {/if}
   {#if caption || credit}
     <figcaption>
