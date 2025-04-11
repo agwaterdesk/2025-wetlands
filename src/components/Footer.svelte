@@ -8,9 +8,6 @@
 <Block cls="full no-margin">
   <footer>
     <div class="container">
-
-    
-
       {#if relatedStories.length > 0}
         <div class="related-section">
           <h2 class="font-utility-heading-06 text-text-secondary">
@@ -23,14 +20,16 @@
                 {#if story.thumbnail}
                   <img src={story.thumbnail} alt={story.title} />
                 {/if}
-               <div class="text">
-                <h3 class="font-utility-body-reg-03 text-text-primary">
-                  {story.title}
-                </h3>
-                <span class="font-utility-label-reg-caps-03 text-text-secondary">
-                  {story.outlet}
-                </span>
-               </div>
+                <div class="text">
+                  <h3 class="font-utility-body-reg-03 text-text-primary">
+                    {story.title}
+                  </h3>
+                  <span
+                    class="font-utility-label-reg-caps-03 text-text-secondary"
+                  >
+                    {story.outlet}
+                  </span>
+                </div>
               </a>
             {/each}
           </div>
@@ -39,7 +38,9 @@
 
       <div class="about-section section">
         <div class="text">
-          <h2 class="font-utility-heading-06 text-text-secondary">About this series</h2>
+          <h2 class="font-utility-heading-06 text-text-secondary">
+            About this series
+          </h2>
           <p>{@html copy.footer.about}</p>
         </div>
 
@@ -55,6 +56,9 @@
     padding: 2rem 0 6rem;
     margin: 0 2rem;
     z-index: 1;
+    @media (max-width: 768px) {
+        margin: 0px 1rem;
+    }
   }
 
   .container {
@@ -64,6 +68,9 @@
     display: flex;
     flex-direction: column;
     gap: 4rem;
+    @media (max-width: 768px) {
+      padding: 0px;
+    }
   }
 
   h2 {

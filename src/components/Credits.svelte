@@ -23,7 +23,10 @@
         <h3>{title}</h3>
         <ul>
           {#each people as person}
-            <li>{@html person.name}{#if person.name && person.org}, {/if} <em>{@html person.org}</em></li>
+            <li>
+              {@html person.name}{#if person.name && person.org},
+              {/if} <em>{@html person.org}</em>
+            </li>
           {/each}
         </ul>
       </div>
@@ -31,12 +34,16 @@
   </div>
 </Block>
 
-<style>
+<style lang="scss">
   .credits {
     font-family: sans-serif;
     margin: 5rem 0 2.5rem;
     font-size: 0.9rem;
     padding: 0 1rem;
+
+    @media (max-width: 768px) {
+      padding: 0px;
+    }
   }
   .credit-section {
     margin-bottom: 1rem;
