@@ -1,5 +1,5 @@
 <script>
-  const base = import.meta.env.BASE_URL;
+  const base = "https://static.startribune.com/news/projects/all/20250414-wetlands-landing-page/"
   let { src, alt, caption, credit, type } = $props();
   
 </script>

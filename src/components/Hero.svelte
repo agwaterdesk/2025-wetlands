@@ -1,5 +1,6 @@
 <script>
-  const base = import.meta.env.BASE_URL;
+  const base =
+    "https://static.startribune.com/news/projects/all/20250414-wetlands-landing-page/";
   import Block from "./Block.svelte";
 
   let { copy } = $props();
