@@ -17,7 +17,7 @@
 
           <div class="related-grid">
             {#each relatedStories as story}
-              <a href={story.url} class="story-card">
+              <a target="_blank" href={story.url} class="story-card">
                 {#if story.thumbnail}
                   <img src={base + story.thumbnail} alt={story.title} />
                 {/if}
