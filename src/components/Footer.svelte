@@ -57,7 +57,7 @@
     margin: 0 2rem;
     z-index: 1;
     @media (max-width: 768px) {
-        margin: 0px 1rem;
+      margin: 0px 1rem;
     }
   }
 
@@ -78,7 +78,6 @@
     margin-bottom: 1rem;
     // color: #333;
   }
-
 
   .about-section {
     display: flex;
@@ -119,14 +118,9 @@
     text-decoration: none;
     color: inherit;
     background: white;
-    border-radius: 8px;
+    border-radius: 4px;
     overflow: hidden;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
-  }
-
-  .story-card:hover {
-    transform: translateY(-4px);
   }
 
   .story-card img {
