@@ -1,5 +1,6 @@
 <script>
   import Block from "$components/Block.svelte";
+  import { base } from '$utils/constants';
   let { copy } = $props();
 
   let relatedStories = copy.footer.relatedStories;
@@ -18,9 +19,9 @@
             {#each relatedStories as story}
               <a href={story.url} class="story-card">
                 {#if story.thumbnail}
-                  <img src={story.thumbnail} alt={story.title} />
+                  <img src={base + story.thumbnail} alt={story.title} />
                 {/if}
-                <div class="text">
+                <div class="text"> 
                   <h3 class="font-utility-body-reg-03 text-text-primary">
                     {story.title}
                   </h3>

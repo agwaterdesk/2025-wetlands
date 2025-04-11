@@ -1,7 +1,6 @@
 <script>
-  const base = "https://static.startribune.com/news/projects/all/20250414-wetlands-landing-page/"
+  import { base } from '$utils/constants';
   let { src, alt, caption, credit, type } = $props();
-  
 </script>
 
 <figure>
