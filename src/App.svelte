@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from "svelte";
   import copy from "$data/copy.json";
   import Block from "$components/Block.svelte";
   import Hero from "$components/Hero.svelte";
@@ -15,13 +16,15 @@
     typeof window !== "undefined" ? window.innerHeight : 0
   );
 
+  onMount(() => {
+    document.querySelector("#proj-container .pt-8").style.paddingTop = "0rem";
+  });
+
   const components = {
     SeriesRefer,
     Scrolly,
     LossMap,
   };
-
-  
 </script>
 
 <svelte:window bind:innerHeight={viewportHeight} />
