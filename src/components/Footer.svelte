@@ -45,7 +45,7 @@
           <p>{@html copy.footer.about}</p>
         </div>
 
-        <img src="images/Down the Drain Logo Composite.png" alt="" />
+        <img src="{base}images/Down the Drain Logo Composite.jpg" alt="" />
       </div>
     </div>
   </footer>
