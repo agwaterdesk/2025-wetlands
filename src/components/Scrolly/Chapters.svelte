@@ -21,7 +21,7 @@
     left: 0;
     right: 0;
     position: absolute;
-    top: 0.5rem;
+    top: 50px;
     display: flex;
     gap: 2px;
     z-index: 1000;
