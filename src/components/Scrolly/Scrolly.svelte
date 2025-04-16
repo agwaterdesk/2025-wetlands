@@ -56,7 +56,7 @@
     setTimeout(() => {
       headerHeight =
         document.querySelector("#global-header")?.clientHeight || 0;
-    }, 500);
+    }, 1000);
   });
 </script>
 
