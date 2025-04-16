@@ -17,7 +17,9 @@
   );
 
   onMount(() => {
-    document.querySelector("#proj-container .pt-8").style.paddingTop = "0rem";
+    setTimeout(() => {
+      document.querySelector("#proj-container .pt-8").style.paddingTop = "0rem";
+    }, 500);
   });
 
   const components = {
@@ -60,7 +62,6 @@
 {/if}
 
 <style lang="scss">
-
   #global-header {
     height: 80px;
     background-color: var(--project-color-teal);
