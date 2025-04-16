@@ -29,6 +29,9 @@
 
 <svelte:window bind:innerHeight={viewportHeight} />
 
+<!-- For testing purposes -->
+<!-- <header id="global-header"></header> -->
+
 {#if viewportHeight}
   <main class="px-4 lg:px-20 pt-8" style:--viewport-height="{viewportHeight}px">
     <Hero {copy} />
@@ -57,6 +60,17 @@
 {/if}
 
 <style lang="scss">
+
+  #global-header {
+    height: 80px;
+    background-color: var(--project-color-teal);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
+  }
   :global {
     p {
       line-height: 1.7;

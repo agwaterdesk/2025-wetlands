@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from "svelte";
   import Scroller from "@sveltejs/svelte-scroller";
   import Block from "$components/Block.svelte";
   import Map from "./Map.svelte";
@@ -48,8 +49,12 @@
     };
   }
 
-  const headerHeight = 49;
+  let headerHeight = $state(0);
   const windowHeight = $derived(window.innerHeight || 0);
+
+  onMount(() => {
+    headerHeight = document.querySelector("#global-header")?.clientHeight || 0;
+  });
 </script>
 
 <Block cls="full" id="scroller-block">
