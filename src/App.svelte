@@ -17,9 +17,7 @@
   );
 
   onMount(() => {
-    setTimeout(() => {
-      document.querySelector("#proj-container .pt-8").style.paddingTop = "0rem";
-    }, 500);
+    document.querySelector("#proj-container .pt-8").style.paddingTop = "0rem";
   });
 
   const components = {

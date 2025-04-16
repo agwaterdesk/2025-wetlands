@@ -53,7 +53,10 @@
   const windowHeight = $derived(window.innerHeight || 0);
 
   onMount(() => {
-    headerHeight = document.querySelector("#global-header")?.clientHeight || 0;
+    setTimeout(() => {
+      headerHeight =
+        document.querySelector("#global-header")?.clientHeight || 0;
+    }, 500);
   });
 </script>
 
