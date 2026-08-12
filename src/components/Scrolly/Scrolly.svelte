@@ -76,7 +76,7 @@
       <Chapters current={index} numSlides={content.slides.length} />
 
       <Map
-        style="mapbox://styles/startribune/cm8hhq3e6017901s55dfi5dmn"
+        style="mapbox://styles/agwaterdesk/cm8m8v8sj01il01s5d6f33q0x"
         mapId="wetlands-map"
         {controller}
         {content}
