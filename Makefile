@@ -1,5 +1,5 @@
 github:
-	npm run build
+	npm run build:embed
 	rm -rf docs
 	cp -r dist docs
 	touch docs/.nojekyll

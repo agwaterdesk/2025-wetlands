@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
+    "generate-embed": "node tasks/generate-embed.js",
+    "build:embed": "npm run build && npm run generate-embed",
     "preview": "vite preview",
     "deploy-staging": "./strib-deploy.sh --environment staging",
     "deploy-production": "./strib-deploy.sh --environment production",

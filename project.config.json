@@ -3,6 +3,14 @@
 		"name": "2025-wetlands",
 		"slug": "2025-wetlands"
 	},
+	"build": {
+		"cdnBaseUrl": "https://cdn.jsdelivr.net/gh/agwaterdesk/2025-wetlands@ghost/docs/",
+		"embedContainerId": "proj-container"
+	},
+	"layout": {
+		"mode": "full",
+		"horizontalPadding": "0"
+	},
 	"google": {
 		"doc": [
 			{
